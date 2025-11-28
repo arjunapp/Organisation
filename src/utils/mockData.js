@@ -1,7 +1,7 @@
 import Pretender from 'pretender';
 
 const mockData = (dataFlat)=>{
-const server = new Pretender(function() {
+new Pretender(function() {
   this.get('/api/employees', request => {
     return [
       200,

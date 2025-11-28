@@ -13,7 +13,7 @@ const OrgChart = ({data, modifyData, filter})=>{
 
     function handleDrop(ev, item) {
        ev.preventDefault();
-       if(draggedItem.id != item.id){
+       if(draggedItem.id !== item.id){
             modifyData(draggedItem, item);
        }
     }
