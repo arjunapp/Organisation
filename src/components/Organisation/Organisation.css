@@ -1,0 +1,19 @@
+.sidebarContainer{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 10px;
+}
+
+.employeeList{
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.employeeListElement{
+    padding: 5px 10px;
+    background-color: #282c34;
+    color: white;
+    border: 1px solid #eeeef1;
+    border-radius: 4px;
+}

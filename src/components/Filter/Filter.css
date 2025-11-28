@@ -1,0 +1,13 @@
+.dropdown{
+    padding: 10px;
+    border: none;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+
+.dropdown::after {
+  border-top: 4px solid #fff; /* Change to your desired color */
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-bottom: 0;
+}
