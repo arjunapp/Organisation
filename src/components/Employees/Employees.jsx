@@ -10,7 +10,7 @@ const Employees = ({ data, onDragStart, onDragOver, onDrop }) => {
                 onDrop={event => onDrop(event, item)} onDragOver={(e) => onDragOver(e, item)}
                 className="employeeCard">
                 <div className="employee-pill">
-                    <img src={item.pic} className='avatar' />
+                    <img src={item.pic} className='avatar' alt="Image-avatar"/>
                     <div className="employeeContainer">
                         <span className='employeeName'> {item.name} </span>
                         <span className='employeeDesignation'> {item.designation} </span>
