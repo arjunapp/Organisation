@@ -13,7 +13,7 @@ code {
 }
 
 
-.container{
+/* .container{
   display: flex;
   background-color: #282c34;
 }
@@ -28,5 +28,25 @@ code {
   width:100%;
   display: flex;
   padding:40px
+} */
+
+.container {
+  width: 100%;
+  display: grid;
+  grid-template-areas: "sidebar main";
+  grid-template-columns: 200px auto;
+  background-color: #282c34;
 }
 
+.sidebar {
+  grid-area: sidebar;
+  height: 100vh;
+  background-color: rgb(238, 238, 241);
+}
+
+.main {
+  grid-area: main;
+  height: 100vh;
+  background-color: #282c34;
+  color: whitesmoke;
+}

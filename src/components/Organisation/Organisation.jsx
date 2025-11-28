@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import Search from '../Search/Search';
 import Filter from '../Filter/Filter';
 
-const Organisation = ({ data }) => {
+const Organisation = ({ data, onFilterChange }) => {
 
     const [employees, setEmployees] = useState(data);
     const [searchValue, setSearchValue] = useState('');
@@ -11,19 +11,24 @@ const Organisation = ({ data }) => {
 
 
     useEffect(() => {
-        const result = data.filter((employee) => {
+        const result = data?.filter((employee) => {
             return employee.name.toLowerCase().includes(searchValue.toLowerCase())
              && (filterValue ? employee.team === filterValue:true);
         });
         setEmployees(result);
     }, [searchValue, filterValue, data])
 
+    function handleFilterChange(val){
+        setFilterValue(val);
+        onFilterChange(val);
+    }
+
     return (
         <div className="sidebarContainer">
             <Search searchValue={searchValue} handleChange={(val) => setSearchValue(val)} />
-            <Filter filterValue={filterValue} employees={data} onFilterChange={(val) => setFilterValue(val)} />
+            <Filter filterValue={filterValue} employees={data} onFilterChange={(val) => handleFilterChange(val)} />
             <ul className='employeeList'>
-                {employees.map(item => {
+                {employees?.map(item => {
                     return (
                         <li className='employeeListElement'>
                             {item.name}

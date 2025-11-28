@@ -1,7 +1,7 @@
 import './Filter.css';
 
 const Filter = ({ filterValue, employees, onFilterChange }) => {
-    const teamList = [...new Set(employees.reduce((acc, item) => {
+    const teamList = [...new Set(employees?.reduce((acc, item) => {
         acc.push(item?.team);
         return acc;
     }, []))];

@@ -1,38 +1,60 @@
-.employeeLabel{
+.employeeLabel {
     padding: 20px;
 }
 
-.avatar{
+.avatar {
     width: 50px;
     border-radius: 50%;
 }
-.employeeCard{
+
+.employeeCard {
     display: flex;
-    width:200px;
+    width: 200px;
     border-radius: 50px;
     background-color: aliceblue;
     color: black;
     display: inline-block;
-    padding:5px;
+    padding: 5px;
 }
 
-.employee-pill{
+.employee-pill {
     display: flex;
     justify-content: space-evenly;
 }
 
-.employeeContainer{
-    display:flex;
+.employeeContainer {
+    display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     width: 80%;
 }
-.employeeName{
+
+.employeeName {
     font-weight: bold;
 }
-.employeeDesignation{
+
+.employeeDesignation {
     font-weight: 500;
     font-size: 12px;
     color: #525f7c;
+}
+
+.employeeHolder {
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    width: 200px;
+    padding: 5px;
+    height: 100%;
+    border-radius: 25px;
+    background-color: rgb(0 0 0 / 85%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

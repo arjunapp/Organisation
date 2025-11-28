@@ -1,0 +1,13 @@
+.orgContainer {
+    display: flex;
+    justify-content: center;
+    margin-top:10px;
+}
+
+.orgName {
+    padding: 10px;
+    border: 8px solid #2c7669;
+    background-color: darkcyan;
+    border-radius: 5px;
+    font-weight: bold;
+}

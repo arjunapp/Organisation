@@ -3,7 +3,7 @@ export function convertToHierarchical(flatArray) {
   const childrenOf = {}; // Map to store children for each parentId
 
   // Initialize childrenOf map and add a 'children' array to each item
-  flatArray.forEach(item => {
+  flatArray?.forEach(item => {
     item.children = []; // Add a children array to hold nested items
     if (item.manager > 0) {
       if (!childrenOf[item.manager]) {
