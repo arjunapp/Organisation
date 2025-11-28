@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import './Filter.css';
 
 const Filter = ({ filterValue, employees, onFilterChange }) => {

@@ -1,6 +1,5 @@
 import './employees.css';
-import { useState, useRef } from 'react';
-import { Tree, TreeNode } from 'react-organizational-chart';
+import { TreeNode } from 'react-organizational-chart';
 
 const Employees = ({ data, onDragStart, onDragOver, onDrop }) => {
 

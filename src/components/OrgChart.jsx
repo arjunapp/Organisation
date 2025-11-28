@@ -1,7 +1,6 @@
-import { Tree, TreeNode } from 'react-organizational-chart';
+import { Tree } from 'react-organizational-chart';
 import Employees from './Employees/Employees';
 import {useState} from 'react';
-import { convertToHierarchical } from '../utils/DataConvertor';
 
 const OrgChart = ({data, modifyData})=>{
     const [draggedItem, setDraggedItem] = useState(null);

@@ -11,13 +11,12 @@ const Organisation = ({ data }) => {
 
 
     useEffect(() => {
-        console.log(filterValue);
         const result = data.filter((employee) => {
             return employee.name.toLowerCase().includes(searchValue.toLowerCase())
              && (filterValue ? employee.team === filterValue:true);
         });
         setEmployees(result);
-    }, [searchValue, filterValue])
+    }, [searchValue, filterValue, data])
 
     return (
         <div className="sidebarContainer">
