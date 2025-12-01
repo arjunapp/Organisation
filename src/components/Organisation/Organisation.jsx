@@ -26,7 +26,7 @@ const Organisation = ({ data, onFilterChange }) => {
             }
         }
         return false
-    }, [searchValue, searchKeys])
+    }, [searchValue])
 
 
     useEffect(() => {
