@@ -1,5 +1,8 @@
 import './Search.css'
 
+/* 
+    The search component.
+*/
 const Search = ({searchValue, handleChange})=>{ 
     return (
             <input type="text" placeholder="Search" 

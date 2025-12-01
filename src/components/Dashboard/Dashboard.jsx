@@ -4,11 +4,15 @@ import { convertToHierarchical } from '../../utils/DataConvertor';
 import { useState, useEffect } from 'react';
 import mockData from '../../utils/mockData';
 
+/* 
+    The container to display the page.
+*/
 const Dashboard = () => {
     const [data, setData] = useState(null);
     const [filter, setFilter] = useState(null);
 
     const hierarchicalData = convertToHierarchical(data);
+
 
     async function fetchData() {
         const result = await fetch('/api/employees');
@@ -23,27 +27,38 @@ const Dashboard = () => {
     function modifyDataSource(dupData) {
         // Ideally an api call to write data has to be sent.
         mockData(dupData);
+        setData(dupData);
     }
 
+    /* 
+        To modify the data after a drag n drop.
+        @params source Source employee node.
+        @params target TArget employee node
+    */
     function handleDataUpdate(source, target) {
         const idx = data.findIndex(item => {
             return item.id === source.id;
         });
-        // change this
-        const dupData = [...data]
-        dupData[idx] = { ...dupData[idx], manager: target.id }
+        let dupData = [...data]
+        dupData[idx] = { ...dupData[idx], manager: target.id };
+        
+        if (source.id === target.manager) {
+            const tIdx = data.findIndex(item => {
+                return item.id === target.id;
+            });
+            dupData[tIdx] = { ...dupData[tIdx], manager: source.manager };
+        }
         modifyDataSource(dupData)
-        setData(dupData);
     }
 
 
     return (
-        <div class="container">
-            <div class="sidebar">
-                <Organisation data={data} onFilterChange={(val)=>setFilter(val)}/>
+        <div className="container">
+            <div className="sidebar">
+                <Organisation data={data} onFilterChange={(val) => setFilter(val)} />
             </div>
-            <div class="main">
-                <OrgChart data={hierarchicalData} modifyData={handleDataUpdate} filter={filter}/>
+            <div className="main">
+                <OrgChart data={hierarchicalData} modifyData={handleDataUpdate} filter={filter} />
             </div>
         </div>
     )

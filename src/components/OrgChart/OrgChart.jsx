@@ -3,7 +3,9 @@ import Employees from '../Employees/Employees';
 import {useState} from 'react';
 import './OrgChart.css';
 
-
+/* 
+    Component to render the hierarchical chart.
+*/
 const OrgChart = ({data, modifyData, filter})=>{
     const [draggedItem, setDraggedItem] = useState(null);
 

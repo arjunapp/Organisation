@@ -1,5 +1,8 @@
 import './Filter.css';
 
+/* 
+    The filter component
+*/
 const Filter = ({ filterValue, employees, onFilterChange }) => {
     const teamList = [...new Set(employees?.reduce((acc, item) => {
         acc.push(item?.team);
@@ -9,10 +12,10 @@ const Filter = ({ filterValue, employees, onFilterChange }) => {
     return (
         <select value={filterValue} onChange={(e) => onFilterChange(e.target.value)} className='dropdown'>
             {<>
-                <option value={''}>All</option>
+                <option value={''} key="All">All</option>
                 {
                     teamList.map((item) => {
-                        return <option value={item}>{item}</option>
+                        return <option value={item} key={item}>{item}</option>
                     })}
             </>
 

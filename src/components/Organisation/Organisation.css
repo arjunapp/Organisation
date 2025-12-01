@@ -16,4 +16,14 @@
     color: white;
     border: 1px solid #eeeef1;
     border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+}
+
+.employeeMeta{
+    font-size: 10px;
+    display: flex;
+    flex-direction: column;
+    color: grey;
+    font-weight: bold;
 }

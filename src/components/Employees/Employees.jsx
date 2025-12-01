@@ -1,10 +1,16 @@
 import './employees.css';
 import { TreeNode } from 'react-organizational-chart';
 
+/* 
+    Component to render the employees.
+*/
 const Employees = ({ data, onDragStart, onDragOver, onDrop, filter }) => {
-    console.log("Rerender", filter)
-    //add documentation
-    function fetchEmployee(item) {
+
+    /* 
+        Renders the employee on the chart.
+        @param item An employee details
+    */
+    function renderEmployee(item) {
         return (
             <div className="employeeHolder">
                 <div id={item.id} draggable={item.manager > 0} onDrag={(event) => onDragStart(event, item)}
@@ -29,7 +35,7 @@ const Employees = ({ data, onDragStart, onDragOver, onDrop, filter }) => {
     return (
         data?.map((item) => {
             return (
-                <TreeNode label={fetchEmployee(item)}>
+                <TreeNode label={renderEmployee(item)} key={item.id}>
                     {item.children?.length > 0 ? <Employees data={item.children} filter={filter}
                         onDragStart={onDragStart} onDragOver={onDragOver} onDrop={onDrop} /> : null}
                 </TreeNode>
