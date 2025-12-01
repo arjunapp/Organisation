@@ -11,7 +11,6 @@ const Organisation = ({ data, onFilterChange }) => {
     const [employees, setEmployees] = useState(data);
     const [searchValue, setSearchValue] = useState('');
     const [filterValue, setFilterValue] = useState('');
-    const searchKeys = ['name', 'designation', 'team']
 
     /* 
         @callback
@@ -19,6 +18,8 @@ const Organisation = ({ data, onFilterChange }) => {
         @param employee An employee    
     */
     const findMatches = useCallback((employee) => {
+        const searchKeys = ['name', 'designation', 'team']
+
         for (var i = 0; i < searchKeys.length; i++) {
             if (employee[searchKeys[i]].toLowerCase().includes(searchValue.toLowerCase())) {
                 return true;
