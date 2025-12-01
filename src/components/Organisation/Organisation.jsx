@@ -1,5 +1,5 @@
 import './Organisation.css'
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import Search from '../Search/Search';
 import Filter from '../Filter/Filter';
 
@@ -14,17 +14,19 @@ const Organisation = ({ data, onFilterChange }) => {
     const searchKeys = ['name', 'designation', 'team']
 
     /* 
+        @callback
         To find if a search criteria matches.
         @param employee An employee    
     */
-    function findMatches(employee){
-        for(var i=0; i < searchKeys.length; i++){
-            if(employee[searchKeys[i]].toLowerCase().includes(searchValue.toLowerCase())){
+    const findMatches = useCallback((employee) => {
+        for (var i = 0; i < searchKeys.length; i++) {
+            if (employee[searchKeys[i]].toLowerCase().includes(searchValue.toLowerCase())) {
                 return true;
             }
-        } 
+        }
         return false
-    }
+    }, [searchValue])
+
 
     useEffect(() => {
         const result = data?.filter((employee) => {
@@ -32,7 +34,7 @@ const Organisation = ({ data, onFilterChange }) => {
                 && (filterValue ? employee.team === filterValue : true);
         });
         setEmployees(result);
-    }, [searchValue, filterValue, data, findMatches])
+    }, [searchValue, filterValue, data])
 
     function handleFilterChange(val) {
         setFilterValue(val);
@@ -55,7 +57,7 @@ const Organisation = ({ data, onFilterChange }) => {
                         </li>
                     )
                 })}</ul>
-                :<h5>No items to display</h5>}
+                : <h5>No items to display</h5>}
         </div>
     )
 }
