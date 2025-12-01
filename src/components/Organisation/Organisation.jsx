@@ -25,7 +25,7 @@ const Organisation = ({ data, onFilterChange }) => {
             }
         }
         return false
-    }, [searchValue])
+    }, [searchValue, searchKeys])
 
 
     useEffect(() => {
@@ -34,7 +34,7 @@ const Organisation = ({ data, onFilterChange }) => {
                 && (filterValue ? employee.team === filterValue : true);
         });
         setEmployees(result);
-    }, [searchValue, filterValue, data])
+    }, [searchValue, filterValue, data, findMatches])
 
     function handleFilterChange(val) {
         setFilterValue(val);
